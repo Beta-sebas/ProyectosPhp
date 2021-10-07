@@ -11,8 +11,7 @@
 <body>
 
 	<?php
-	use UI\Menu;
-
+	
 		include "modulos/menu.php";
 
 	?>
