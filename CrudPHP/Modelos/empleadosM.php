@@ -4,6 +4,8 @@
 
     class EmpleadosM extends ConexionBD{
 
+        //Registrar Empleados
+
         public static function registrarEmpleadosM($datosC, $tablaBD){
 
             $pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD (nombre, apellido, email, puesto, salario) VALUES 
@@ -27,6 +29,20 @@
 
             $pdo = null;
 
+        }
+
+        //Mostrar Empleados
+
+        public static function MostrarEmpleadosM($tablaBD){
+
+            $pdo = ConexionBD::cBD()->prepare("SELECT id, nombre, apellido, email, puesto, salario 
+            FROM $tablaBD ");
+
+            $pdo -> execute();
+
+            return $pdo -> fetchAll();
+
+            $pdo = null;
         }
 
     }
