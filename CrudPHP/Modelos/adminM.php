@@ -7,7 +7,7 @@
         public static function ingresoM($datosC, $tablaBD){
 
             //el prepare del PDO, Prepara una sentencia sql para ser ejecutada por el metodo execute
-            $pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave FROM $tablaBD WHERE USUARIO = :usuario");
+            $pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave FROM $tablaBD WHERE usuario = :usuario");
 
             /*la siguiente linea se usa para enlazar parametros
             El bindParam vincula una variable PHP a un parametro 
@@ -19,7 +19,7 @@
 
             return $pdo-> fetch();
 
-            $pdo -> closeCursor();
+            $pdo = null;
 
         }
     }
