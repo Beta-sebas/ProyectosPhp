@@ -34,7 +34,7 @@
 <?php
 
 	$registrar = new EmpleadosC();
-	$registrar -> registrarEmpleadosC();
+	$registrar -> RegistrarEmpleadosC();
 
 ?>
 
