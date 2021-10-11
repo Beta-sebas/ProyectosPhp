@@ -46,7 +46,7 @@
                             <td>$'.$value["salario"].'</td>
                             
                             <td><a href="index.php?ruta=editar&id='.$value["id"].'"><button>Editar</button></a></td>
-                            <td><button>Borrar</button></td>
+                            <td><a href="index.php?ruta=empleados&idD='.$value["id"].'"><button>Borrar</button></a></td>
                         </tr>
                     ';
             }
@@ -106,6 +106,30 @@
                 }else {
                     
                     print "Error al actualizar el Empleado";
+                }
+            }
+        }
+
+        //Eliminar Empleado
+
+        public function EliminarEmpleadosC(){
+
+            if (isset($_GET["idD"])) {
+                
+                $datosC = $_GET["idD"];
+
+                $tablaBD = "empleados";
+
+                $respuesta = EmpleadosM::EliminarEmpleadosM($datosC, $tablaBD);
+
+                if ($respuesta == "Exito") {
+                    
+                    
+                    header("location:index.php?ruta=empleados");
+
+                }else {
+                    
+                    print "Error al Eliminar el Empleado";
                 }
             }
         }

@@ -61,6 +61,8 @@
             $pdo = null;
         } 
 
+        //Actualizar Empleados
+
         public static function updateEmpleadosM($datosC, $tablaBD){
 
             $pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET nombre = :nombre, apellido = :apellido
@@ -89,7 +91,26 @@
 
         }
 
-            
+        //Borrar Empleados
+        
+        public static function EliminarEmpleadosM($datosC, $tablaBD){
+
+            $pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
+
+            $pdo -> bindParam(":id", $datosC, PDO::PARAM_INT);
+
+            if ($pdo -> execute()) {
+                
+                return "Exito";
+               
+            }else{
+
+                return "Error";
+
+            }
+
+            $pdo = null;
+        }
 
     }
 ?>

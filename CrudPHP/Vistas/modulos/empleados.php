@@ -42,4 +42,9 @@
 
 	</table>
 
+<?php
 
+	$eliminar = new EmpleadosC();
+	$eliminar -> EliminarEmpleadosC();
+
+?>
